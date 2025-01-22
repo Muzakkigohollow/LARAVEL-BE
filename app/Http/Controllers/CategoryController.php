@@ -57,7 +57,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Category::find($id)
+        $data = Category::find($id);
 
         if (isset($data)){
 
@@ -69,24 +69,6 @@ class CategoryController extends Controller
             return response([
                 "message" => 'Category has been deleted',
                 "data" => $data
-            ]);
-        }
-        return response([
-            "message" => 'Category not found',
-            "data" => $data
-        ], 404);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $data = Category::find($id);
-        if(isset($data)){
-            $data->delete();
-            return response([
-                "message" => 'Category has been deleted',
             ]);
         }
         return response([
